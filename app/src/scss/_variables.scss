@@ -1,0 +1,77 @@
+@charset "UTF-8";
+
+// ***********************************************
+//  Global Variables
+// ***********************************************
+$root: "../images/";
+
+
+// Size
+// =====================================
+$sp-min-width: 320px;
+$sp-max-width: 640px;
+
+// $pc-min-width: 1120px;
+// $pc-max-width: 1440px;
+
+$duration: 0.3s;
+
+
+// Color
+// =====================================
+$color-brand-main: #999; //
+$color-brand-sub:  #bbb; //
+
+$color-text-black: #363636;
+$color-text-gray: #e9e9e9;
+
+$color-gray: #bbb;
+$color-border-gray: #dedede;
+
+$color-brand-deep: (
+  #ade4f3,  // Blue
+  #cae69a,  // Green
+  #fff087,  // Yellow
+  #ffbf78,  // Orange
+  #fdb1d2   // Pink
+);
+
+
+// Font Family
+// =====================================
+$ff-serif: serif;
+// $ff-sans-serif: 'Noto Sans', sans-serif;
+$ff-sans-serif: 'Montserrat', 'Noto Sans', sans-serif;
+
+
+// Media Queries
+// =====================================
+$device-s: "screen and (max-width: 640px)";
+$device-l: "screen and (min-width: 641px)";
+
+@mixin placeholderColor($color, $opacity) {
+  &:placeholder-shown {
+    color: $color;
+    opacity: $opacity;
+  }
+
+  &::-webkit-input-placeholder {
+    color: $color;
+    opacity: $opacity;
+  }
+
+  &:-moz-placeholder {
+    color: $color;
+    opacity: $opacity;
+  }
+
+  &::-moz-placeholder {
+    color: $color;
+    opacity: $opacity;
+  }
+
+  &:-ms-input-placeholder {
+    color: $color;
+    opacity: $opacity;
+  }
+}
