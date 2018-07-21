@@ -17,7 +17,7 @@ var entryPoint = './src/js/script.js',
   htmlWatchPath = './src/**/*.html';
 
 gulp.task('html', function() {
-  gulp.src('./src/index.html')
+  gulp.src(htmlWatchPath)
     .pipe(gulp.dest('./dist'))
     .pipe(browserSync.reload({stream: true}));
 });
