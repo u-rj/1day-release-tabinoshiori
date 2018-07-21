@@ -11,6 +11,7 @@
   <link rel="shortcut icon" href="./favicon.ico"  type="image/x-icon" />
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"></link>
+  <link href="https://fonts.googleapis.com/earlyaccess/mplus1p.css" rel="stylesheet" />
   <link rel="stylesheet" href="./css/style.css"></link>
 </head>
 <body>
@@ -23,26 +24,52 @@
     </div>
 
     <main role="main">
-      <ol class="">
+      <ol class="date-list">
         <li>
-          <a href="" class="">
-            <time datetime="2018-08-11">8月<strong>11日</strong></time>
+          <a href="#" class="date-button">
+            <time datetime="2018-08-11">8月<strong>11日</strong>(土)</time>
           </a>
         </li>
         <li>
-          <a href="" class="">
-            <time datetime="2018-08-12">8月<strong>12日</strong></time>
+          <a href="#" class="date-button is-active">
+            <time datetime="2018-08-12">8月<strong>12日</strong>(日)</time>
           </a>
         </li>
         <li>
-          <a href="" class="">
-            <time datetime="2018-08-11">8月<strong>11日</strong></time>
+          <a href="#" class="date-button">
+            <time datetime="2018-08-13">8月<strong>13日</strong>(月)</time>
           </a>
         </li>
       </ol>
 
       <ul class="timeline-container">
-        <li>
+        <li style="left: -100vw;">
+          <!-- Timeline -->
+          <ol class="timeline">
+            <li>
+              <div class="schedule is-latest">
+                <label class="schedule-time">
+                  <time datetime="2018-08-11T10:00:00">10:00</time>
+                </label>
+                <div class="schedule-detail">
+                  <h2 class="schedule-title">集合</h2>
+                  <dl class="schedule">
+                    <dt class="is-display">場所</dt>
+                    <dd class="is-display">吉祥寺</dd>
+                    <dd class="map">
+                      <div class=""></div>
+                    </dd>
+                    <dt>メモ</dt>
+                    <dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati voluptatem, vel nesciunt quas sequi quibusdam aspernatur aliquam eligendi! Dolor provident, vel aperiam deserunt dolorum impedit aliquid distinctio nemo, vitae numquam!</dd>
+                  </dl>
+                </div>
+              </div>
+            </li>
+          </ol>
+          <!-- / Timeline -->
+        </li>
+
+        <li style="left: 0;">
           <!-- Timeline -->
           <ol class="timeline">
             <li>
@@ -105,6 +132,32 @@
           </ol>
           <!-- / Timeline -->
         </li>
+
+        <li style="left: 100vw;">
+          <!-- Timeline -->
+          <ol class="timeline">
+            <li>
+              <div class="schedule">
+                <label class="schedule-time">
+                  <time datetime="2018-08-11T10:00:00">10:00</time>
+                </label>
+                <div class="schedule-detail">
+                  <h2 class="schedule-title">集合</h2>
+                  <dl class="schedule">
+                    <dt class="is-display">場所</dt>
+                    <dd class="is-display">吉祥寺</dd>
+                    <dd class="map">
+                      <div class=""></div>
+                    </dd>
+                    <dt>メモ</dt>
+                    <dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati voluptatem, vel nesciunt quas sequi quibusdam aspernatur aliquam eligendi! Dolor provident, vel aperiam deserunt dolorum impedit aliquid distinctio nemo, vitae numquam!</dd>
+                  </dl>
+                </div>
+              </div>
+            </li>
+          </ol>
+          <!-- / Timeline -->
+        </li>
       </ul>
     </main>
 
@@ -112,10 +165,10 @@
       <footer>
         <ul class="">
           <li>
-            <a href="">共有</a>
+            <a href="#">共有</a>
           </li>
           <li>
-            <a href="">メニュー</a>
+            <a href="#">メニュー</a>
           </li>
         </ul>
       </footer>
