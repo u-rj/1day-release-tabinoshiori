@@ -61,10 +61,10 @@ new Vue({
     editMode: false
   },
   mounted () {
-    this.getUrlData()
-    this.setSocketOn()
-    this.loadPlan()
-    this.savePlan()
+    // this.getUrlData()
+    // this.setSocketOn()
+    // this.loadPlan()
+    // this.savePlan()
   },
   methods: {
     getUrlData () {
