@@ -14,7 +14,13 @@ var entryPoint = './src/js/script.js',
   browserDir = './dist',
   sassWatchPath = './src/scss/**/*.scss',
   jsWatchPath = './src/**/*.js',
-  htmlWatchPath = './**/*.html';
+  htmlWatchPath = './src/**/*.html';
+
+gulp.task('html', function() {
+  gulp.src('./src/index.html')
+    .pipe(gulp.dest('./dist'))
+    .pipe(browserSync.reload({stream: true}));
+});
 
 gulp.task('js', function () {
   return browserify(entryPoint, {debug: true, extensions: ['es6']})
@@ -57,10 +63,8 @@ gulp.task('sass', function () {
 gulp.task('watch', function () {
   gulp.watch(jsWatchPath, ['js']);
   gulp.watch(sassWatchPath, ['sass']);
-  gulp.watch(htmlWatchPath, function () {
-    return gulp.src('')
-      .pipe(browserSync.reload({stream: true}))
-  });
+  gulp.watch(htmlWatchPath, ['html']);
+  browserSync.reload({stream: true});
 });
 
-gulp.task('default', ['js', 'sass', 'watch', 'browser-sync']);
+gulp.task('default', ['html', 'js', 'sass', 'watch', 'browser-sync']);
