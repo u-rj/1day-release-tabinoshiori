@@ -29,52 +29,54 @@
     <main role="main">
       <div class="contents-area">
       
-      <ol class="date-list">
-        <li v-for="(date, date_index) in timeline">     
-          <a href="#" class="date-button">
-            <!-- <time datetime="2018-08-11">{{ getMonth(date_index) }}月<strong>{{ getDate(date_index) }}日</strong>(土)</time> -->
-            <time datetime="2018-08-11">{{ getDate(date_index) }}</time>
-          </a>
-        </li>
-      </ol>
+        <ol class="date-list">
+          <li v-for="(date, date_index) in timeline">     
+            <a href="#" class="date-button">
+              <!-- <time datetime="2018-08-11">{{ getMonth(date_index) }}月<strong>{{ getDate(date_index) }}日</strong>(土)</time> -->
+              <time datetime="2018-08-11">{{ getDate(date_index) }}</time>
+            </a>
+          </li>
+        </ol>
 
-      <ul class="timeline-container">
-        <li v-for="(timeline_day, timeline_index) in timeline"
-        :class="{'is-active': isActiveDay(timeline_index)}"
-        v-bind:style="{}">
+        <div class="timeline-container">
+          <ul class="timeline-list clearfix" style="width: 300%;"><!-- width: 100% * n; -->
+            <li v-for="(timeline_day, timeline_index) in timeline"
+            :class="{'is-active': isActiveDay(timeline_index)}"
+            v-bind:style="{}">
+            <!-- Timeline -->
+            <ol class="timeline"
+            v-for="(tasks, task_index) in timeline_day">
+                
+              <li 
+              :class="{'is-active': isActiveTask(task_index)}"
+              @click="activeTask(task_index, $event)">
 
-        <!-- Timeline -->
-        <ol class="timeline"
-        v-for="(tasks, task_index) in timeline_day">
-            
-        <li 
-        :class="{'is-active': isActiveTask(task_index)}"
-        @click="activeTask(task_index, $event)">
+              <div class="schedule is-latest">
+                <label class="schedule-time">
+                  <time datetime="2018-08-11T10:00:00"><strong>{{ timeline[timeline_index][task_index].start_time}}</strong></time>
+                  <span class="schedule-spacer">から</span>
+                  <time datetime="2018-08-11T10:00:00">{{ timeline[timeline_index][task_index].end_time}}</time>
+                </label>
+                <div class="schedule-detail">
+                  <h2 class="schedule-title">{{ timeline[timeline_index][task_index].title }}</h2>
+                  <dl class="schedule">
+                    <dt class="is-display">場所</dt>
+                    <dd class="is-display">{{ timeline[timeline_index][task_index].place }}</dd>
+                    <dd class="map">
+                      <div class=""></div>
+                    </dd>
+                    <dt>メモ</dt>
+                    <dd>{{ timeline[timeline_index][task_index].description }}</dd>
+                  </dl>
+                </div>
+              </div>
+            </li>
+          </ol>
+              <!-- / Timeline -->
+            </li>
 
-          <div class="schedule is-latest">
-            <label class="schedule-time">
-              <time datetime="2018-08-11T10:00:00">{{ timeline[timeline_index][task_index].start_time}}</time>
-              <time datetime="2018-08-11T10:00:00">{{ timeline[timeline_index][task_index].end_time}}</time>
-            </label>
-            <div class="schedule-detail">
-              <h2 class="schedule-title">{{ timeline[timeline_index][task_index].title }}</h2>
-              <dl class="schedule">
-                <dt class="is-display">場所</dt>
-                <dd class="is-display">{{ timeline[timeline_index][task_index].place }}</dd>
-                <dd class="map">
-                  <div class=""></div>
-                </dd>
-                <dt>メモ</dt>
-                <dd>{{ timeline[timeline_index][task_index].description }}</dd>
-              </dl>
-            </div>
-          </div>
-        </li>
-      </ol>
-          <!-- / Timeline -->
-        </li>
-
-      </ul>
+            </ul>
+        </div>
       </div>
     </main>
 
