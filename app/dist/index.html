@@ -16,149 +16,66 @@
 </head>
 <body>
 
-  <div id="container">
-    <div class="l-header">
-      <header>
-        <h1 class="title">ENJOY YOUR TRIP</h1>
-      </header>
-    </div>
+  <div id="container" class="is-scroll">
+      <div class="l-header">
+        <div class="wrap">
+          <header>
+            <h1 class="trip-title">{{plan.title}}</h1>
+            <p class="trip-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio molestias dignissimos illum quod eius possimus, labore et, quia illo soluta tempore, consequatur ut eos repudiandae vero? Expedita, possimus laborum deserunt.</p>
+          </header>
+        </div>
+      </div>
 
     <main role="main">
+      <div class="contents-area">
+      
       <ol class="date-list">
-        <li>
+        <li v-for="(date, date_index) in plan.timeline">     
           <a href="#" class="date-button">
-            <time datetime="2018-08-11">8月<strong>11日</strong>(土)</time>
-          </a>
-        </li>
-        <li>
-          <a href="#" class="date-button is-active">
-            <time datetime="2018-08-12">8月<strong>12日</strong>(日)</time>
-          </a>
-        </li>
-        <li>
-          <a href="#" class="date-button">
-            <time datetime="2018-08-13">8月<strong>13日</strong>(月)</time>
+            <!-- <time datetime="2018-08-11">{{ getMonth(date_index) }}月<strong>{{ getDate(date_index) }}日</strong>(土)</time> -->
+            <time datetime="2018-08-11">{{ getDate(date_index) }}</time>
           </a>
         </li>
       </ol>
 
       <ul class="timeline-container">
-        <li style="left: -100vw;">
-          <!-- Timeline -->
-          <ol class="timeline">
-            <li>
-              <div class="schedule is-latest">
-                <label class="schedule-time">
-                  <time datetime="2018-08-11T10:00:00">10:00</time>
-                </label>
-                <div class="schedule-detail">
-                  <h2 class="schedule-title">集合</h2>
-                  <dl class="schedule">
-                    <dt class="is-display">場所</dt>
-                    <dd class="is-display">吉祥寺</dd>
-                    <dd class="map">
-                      <div class=""></div>
-                    </dd>
-                    <dt>メモ</dt>
-                    <dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati voluptatem, vel nesciunt quas sequi quibusdam aspernatur aliquam eligendi! Dolor provident, vel aperiam deserunt dolorum impedit aliquid distinctio nemo, vitae numquam!</dd>
-                  </dl>
-                </div>
-              </div>
-            </li>
-          </ol>
+        <li v-for="(timeline_day, timeline_index) in plan.timeline"
+        :class="{'is-active': isActiveDay(timeline_index)}"
+        v-bind:style="{}">
+
+        <!-- Timeline -->
+        <ol class="timeline"
+        v-for="(tasks, task_index) in timeline_day">
+            
+        <li 
+        :class="{'is-active': isActiveTask(task_index)}"
+        @click="activeTask(task_index, $event)">
+
+          <div class="schedule is-latest">
+            <label class="schedule-time">
+              <time datetime="2018-08-11T10:00:00">{{ plan.timeline[timeline_index][task_index].start_time}}</time>
+              <time datetime="2018-08-11T10:00:00">{{ plan.timeline[timeline_index][task_index].end_time}}</time>
+            </label>
+            <div class="schedule-detail">
+              <h2 class="schedule-title">{{ plan.timeline[timeline_index][task_index].title }}</h2>
+              <dl class="schedule">
+                <dt class="is-display">場所</dt>
+                <dd class="is-display">{{ plan.timeline[timeline_index][task_index].place }}</dd>
+                <dd class="map">
+                  <div class=""></div>
+                </dd>
+                <dt>メモ</dt>
+                <dd>{{ plan.timeline[timeline_index][task_index].description }}</dd>
+              </dl>
+            </div>
+          </div>
+        </li>
+      </ol>
           <!-- / Timeline -->
         </li>
 
-        <li style="left: 0;">
-          <!-- Timeline -->
-          <ol class="timeline">
-            <li>
-              <div class="schedule is-latest">
-                <label class="schedule-time">
-                  <time datetime="2018-08-11T10:00:00">10:00</time>
-                </label>
-                <div class="schedule-detail">
-                  <h2 class="schedule-title">集合</h2>
-                  <dl class="schedule">
-                    <dt class="is-display">場所</dt>
-                    <dd class="is-display">吉祥寺</dd>
-                    <dd class="map">
-                      <div class=""></div>
-                    </dd>
-                    <dt>メモ</dt>
-                    <dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati voluptatem, vel nesciunt quas sequi quibusdam aspernatur aliquam eligendi! Dolor provident, vel aperiam deserunt dolorum impedit aliquid distinctio nemo, vitae numquam!</dd>
-                  </dl>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="schedule is-active">
-                <label class="schedule-time">
-                  <time datetime="2018-08-11T10:00:00">10:00</time>
-                </label>
-                <div class="schedule-detail">
-                  <h2 class="schedule-title">集合</h2>
-                  <dl class="schedule">
-                    <dt class="is-display">場所</dt>
-                    <dd class="is-display">吉祥寺</dd>
-                    <dd class="map">
-                      <div class=""></div>
-                    </dd>
-                    <dt>メモ</dt>
-                    <dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati voluptatem, vel nesciunt quas sequi quibusdam aspernatur aliquam eligendi! Dolor provident, vel aperiam deserunt dolorum impedit aliquid distinctio nemo, vitae numquam!</dd>
-                  </dl>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="schedule">
-                <label class="schedule-time">
-                  <time datetime="2018-08-11T10:00:00">10:00</time>
-                </label>
-                <div class="schedule-detail">
-                  <h2 class="schedule-title">集合</h2>
-                  <dl class="schedule">
-                    <dt class="is-display">場所</dt>
-                    <dd class="is-display">吉祥寺</dd>
-                    <dd class="map">
-                      <div class=""></div>
-                    </dd>
-                    <dt>メモ</dt>
-                    <dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati voluptatem, vel nesciunt quas sequi quibusdam aspernatur aliquam eligendi! Dolor provident, vel aperiam deserunt dolorum impedit aliquid distinctio nemo, vitae numquam!</dd>
-                  </dl>
-                </div>
-              </div>
-            </li>
-          </ol>
-          <!-- / Timeline -->
-        </li>
-
-        <li style="left: 100vw;">
-          <!-- Timeline -->
-          <ol class="timeline">
-            <li>
-              <div class="schedule">
-                <label class="schedule-time">
-                  <time datetime="2018-08-11T10:00:00">10:00</time>
-                </label>
-                <div class="schedule-detail">
-                  <h2 class="schedule-title">集合</h2>
-                  <dl class="schedule">
-                    <dt class="is-display">場所</dt>
-                    <dd class="is-display">吉祥寺</dd>
-                    <dd class="map">
-                      <div class=""></div>
-                    </dd>
-                    <dt>メモ</dt>
-                    <dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati voluptatem, vel nesciunt quas sequi quibusdam aspernatur aliquam eligendi! Dolor provident, vel aperiam deserunt dolorum impedit aliquid distinctio nemo, vitae numquam!</dd>
-                  </dl>
-                </div>
-              </div>
-            </li>
-          </ol>
-          <!-- / Timeline -->
-        </li>
       </ul>
+      </div>
     </main>
 
     <div class="l-footer">
@@ -175,7 +92,11 @@
     </div>
   </div>
   <!-- / #container -->
-
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/locale/ja.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-url/2.5.3/url.min.js"></script>
   <script src="./js/script.js"></script>
 </body>
 </html>
