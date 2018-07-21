@@ -37,19 +37,19 @@
 
 ## Websocket(WS)
 
-### プランの作成(*_new_plan)
+### プランの作成(*_create_plan)
 #### in
 + title: String
 
 ```
-socket.emit('in_new_plan', {title: "北海道旅行"})
+socket.emit('in_create_plan', {title: "北海道旅行"})
 ```
 
 #### out
 + plan_id: Integer
 
 ```
-socket.on('out_new_plan', (data) => {
+socket.on('out_create_plan', (data) => {
   console.log(data.plan_id) // 1fCnEVwyKWVsPkNEb6yCkEJCShd_2k2mcfmnyav7G8zI
 })
 ```
