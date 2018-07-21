@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+// ***********************************************
+//  Base
+// ***********************************************
+html {
+  font-size: 10px;
+
+  body {
+    font-size: 1.4rem;
+  }
+}
+
+button, input {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  box-shadow: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.clearfix {
+  &::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
