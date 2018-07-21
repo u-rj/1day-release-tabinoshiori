@@ -9,16 +9,17 @@
 .date-button {
   position: relative;
   display: block;
-  padding: 0 5px;
+  padding: 10px 12px;
+  width: 60px;
+  height: 60px;
   vertical-align: bottom;
   text-align: center;
   font-family: $ff-accent;
   font-size: 1.2rem;
-  color: #ccc;
+  color: #7d8df2;
   font-weight: bold;
   letter-spacing: 0.05em;
   text-decoration: none;
-
   &::after {
     content: "";
     position: absolute;
@@ -28,10 +29,10 @@
     display: block;
     width: 16px;
     height: 5px;
-    border: 2px solid #fff;
+    border: 2px solid #455bec;
     margin: 0 auto;
     border-radius: 5px;
-    background-color: #ccc;
+    background-color: #fff;
   }
 
   strong {
@@ -40,14 +41,14 @@
   }
 
   &.is-active {
-    color: #808080;
-
+    color: #455bec;
+    background-color: #fff;
+    border-radius: 50%;
     &::after {
-      background-color: #000;
+      // background-color: #000;
     }
 
     strong {
-      color: #000;
     }
   }
 }
