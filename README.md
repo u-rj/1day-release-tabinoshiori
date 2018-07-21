@@ -1,7 +1,7 @@
 # 1day-release-tabinoshiori
 旅のしおり
 
-## Server
+## Data format
 ```
 [
   {
@@ -34,3 +34,53 @@
   }
 ]
 ```
+
+## Websocket(WS)
+in_*でリクエストする。
+out_*でリクエストする。
+
+### プランの作成(*_new_plan)
+#### in
++ title: String
+
+```
+socket.emit('in_new_plan', {title: "北海道旅行"})
+```
+
+#### out
++ plan_id: Integer
+
+```
+socket.on('out_new_plan', (data) => {
+  console.log(data.plan_id) // 1fCnEVwyKWVsPkNEb6yCkEJCShd_2k2mcfmnyav7G8zI
+})
+
+```
+
+### プランの読み込み(*_load_plan)
+#### in
++ plan_id: plan_id
+#### out
++ plan: Object
+
+### プランの保存(*_save_plan)
+#### in
++ plan: Object
+#### out
+##### 失敗
++ status: "Failure"
++ message: String
+##### 成功
++ status: "Success"
++ plan_id: Integer
+
+### プランの一覧(*_load_plan_list)
+#### in
++ password: String
+#### out
+timelineのデータ以外を含む
+
++ plan: Array
+
+
+
