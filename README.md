@@ -111,13 +111,23 @@ socket.emit('in_load_plan_list', {password: "xxx"})
 ```
 
 #### out
-※timelineのデータ以外を含む
-
+##### 成功
++ status: "Success"
 + list: Array
 
 ```
 socket.on('out_load_plan_list', (data) => {
+  console.log(data.status) // Success
   console.log(data.list) // [{"plan_id":...}]
+})
+```
+
+##### 失敗
++ status: "Failure"
+
+```
+socket.on('out_load_plan_list', (data) => {
+  console.log(data.status) // Failure
 })
 ```
 
