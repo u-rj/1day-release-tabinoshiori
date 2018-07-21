@@ -6,4 +6,54 @@
 
 // /
 // =====================================
+.schedule {
+  display: table;
+  width: 100%;
 
+  &-time,
+  &-detail {
+    display: table-cell;
+  }
+
+  &-time {
+    width: 55px;
+    vertical-align: top;
+    text-align: center;
+    font-family: $ff-accent;
+    letter-spacing: 0.05em;
+
+    strong {
+      font-weight: bold;
+    }
+  }
+
+  &-detail {
+  }
+
+  // Parts
+  // ====================
+  &-spacer {
+    display: block;
+    height: 1.2rem;
+    font-size: 0;
+
+    &::before {
+      content: "～";
+      display: inline-block;
+      font-size: 1.2rem;
+      transform: rotate(90deg);
+    }
+  }
+
+  &-title {
+  }
+
+  &-info {
+    dt, dd {
+
+      &.is-display {
+        display: block;
+      }
+    }
+  }
+}

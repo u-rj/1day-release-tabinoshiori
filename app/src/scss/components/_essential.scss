@@ -8,21 +8,64 @@
 // =====================================
 #container {
   display: block;
-  overflow: hidden;
+  // overflow: hidden;
   width: 100%;
   min-width: $sp-min-width;
   max-width: $sp-max-width;
+  height: 100vh;
   margin: 0 auto;
+
+  &.is-scroll {
+    .trip {
+      &-title {
+        margin: 5px 0;
+        font-size: 1.4rem;
+      }
+
+      &-description {
+        margin: 0;
+        font-size: 0;
+      }
+    }
+  }
+}
+
+.contents-area {
+  display: block;
+  margin: 0 10px;
+  background-color: #fff;
+  border-radius: 10px;
 }
 
 .wrap {
-  margin: 0 auto;
+  margin: 0 20px;
 }
 
 
 // Header
 // =====================================
 .l-header {
+  color: #fff;
+}
+
+.trip {
+  &-title {
+    margin: 30px 0 25px;
+    text-align: center;
+    line-height: 1.5;
+    font-family: $ff-accent;
+    font-weight: bold;
+    font-size: 3.4rem;
+    letter-spacing: 0.05em;
+    word-break: break-all;
+    // transition-duration: $duration;
+  }
+
+  &-description {
+    margin: 25px 0 35px;
+    line-height: 1.9;
+    transition-duration: $duration;
+  }
 }
 
 

@@ -7,13 +7,19 @@
 // Date List
 // =====================================
 .date-list {
+  position: relative;
   display: block;
+  padding-top: 40px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e5e5e5;
+  margin: 0 -10px;
   text-align: center;
   font-size: 0;
 
   >li {
     display: inline-block;
     font-size: 1.6rem;
+    margin: 0 7%;
   }
 }
 
@@ -22,16 +28,27 @@
 // =====================================
 .timeline {
   &-container {
+    display: block;
+    overflow: scroll;
+  }
+
+  &-list {
     position: relative;
     display: block;
+    overflow: hidden;
 
     >li {
-      position: absolute;
-      top: 0;
-      width: 100vw;
+      float: left;
     }
   }
 
+  margin: 15px;
+
   >li {
+    margin-top: 15px;
+
+    &:first-child {
+      margin-top: 0;
+    }
   }
 }
