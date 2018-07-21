@@ -40,9 +40,15 @@
 ### プランの作成(*_create_plan)
 #### in
 + title: String
++ date: String
++ description: String
 
 ```
-socket.emit('in_create_plan', {title: "北海道旅行"})
+socket.emit('in_create_plan', {
+  title: '北海道旅行',
+  description: '2泊3日',
+  date: '2018-08-19'
+})
 ```
 
 #### out
